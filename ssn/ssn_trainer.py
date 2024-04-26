@@ -31,7 +31,8 @@ class SSNTrainer(BaseTrainer):
         # byte-pair encoding
         self._tokenizer = BertTokenizer.from_pretrained(args.tokenizer_path,
                                                         do_lower_case=args.lowercase,
-                                                        cache_dir=args.cache_path)
+                                                        cache_dir=args.cache_path,
+                                                       model_max_length=512)
 
         # path to export predictions to
         self._predictions_path = os.path.join(self._log_path, 'predictions_%s_epoch_%s.json')
